@@ -1,3 +1,9 @@
+/**
+ * decodeServer main function.
+ * 
+ * @author hy
+ * @date 2019/03/03
+ * */
 package mypkg;
 
 public class DecodeServer {

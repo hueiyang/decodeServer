@@ -1,3 +1,11 @@
+/**
+ * UDP server
+ * 
+ * One thread of scanning console input.
+ * 
+ * @author hy
+ * @date 2019/03/03
+ * */
 package mypkg;
 
 import java.io.IOException;
@@ -9,7 +17,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
-
+/**
+ * @param PORT connection port in hard code
+ * @param TYPEIDINDEX device type id index
+ */
 public class UDPServer extends Thread{
 	final int PORT = 5033;		// UDP server port.
 	final int TYPEIDINDEX = 9;	// Device type id index.
@@ -68,7 +79,12 @@ public class UDPServer extends Thread{
 		}
 	}
 	
-	// instead of RESTful api ... temporary ...
+	/**
+	 * instead of RESTful api ... temporary ...
+	 * Type "show" will show all result in JSONArray.
+	 * Type "quit" will close this server.
+	 * Type others will do nothing.
+	 */
 	public void run() {
 		Scanner scan = new Scanner(System.in);
 		

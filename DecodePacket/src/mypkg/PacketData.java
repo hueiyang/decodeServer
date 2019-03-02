@@ -1,3 +1,9 @@
+/**
+ * store received packet data and decode the result.
+ * 
+ * @author hy
+ * @date 2019/03/03
+ * */
 package mypkg;
 
 import java.util.Iterator;
@@ -8,12 +14,15 @@ import java.util.Set;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+/**
+ * @param allData static variable store all of result in JSONArray
+ * @param TYPEIDINDEX define where the type id is in the packet 
+ * */
 public class PacketData {
 	private static JSONArray allData = new JSONArray();
 	final int TYPEIDINDEX = 9;
 	private String timestamp;	// timesatmp when packet received.	[HH:MM:SS]
 	
-//	private String[] arrRule;
 	private String[] arrHexData;		// hex packet data in string array
 	private String TypeId;				// device type id [ex. 132, 135, 138, 152]
 	private JSONObject packetRule;		// rule for this packet id
@@ -43,7 +52,12 @@ public class PacketData {
 		}
 	}
 	
-	// get and store all Key:Value pairs, then return the final JSONObject
+	/** 
+	 * get and store all Key:Value pairs, then return the final JSONObject
+	 * @param obj rule object of this device
+	 * @return all key:value pairs
+	 */
+	 
 	public JSONObject getObjectValue(JSONObject obj) {
 		JSONObject result = new JSONObject();
 		
@@ -101,7 +115,11 @@ public class PacketData {
 		return result;
 	}
 	
-	// analyze the value rule ex.[i 13 - i 14 * v 100]
+	/**
+	 * analyze the value rule ex.[i 13 - i 14 * v 100]
+	 * @param arrRule the rule of calculating the value
+	 * @return queue:store the value formula
+	 */
 	public Queue<String> processQueue(String[] arrRule){
 		Queue<String> que = new LinkedList<String>();
 		
@@ -128,7 +146,10 @@ public class PacketData {
 		return que;
 	}
 	
-	// CRC = 55 XOR byte2 to byte18 must match byte49.
+	/**
+	 * CRC = 55 XOR byte2 to byte18 must match byte49.
+	 * @return true or false
+	 */
 	public boolean checkCRC() {
 		int CRC = 55;
 		

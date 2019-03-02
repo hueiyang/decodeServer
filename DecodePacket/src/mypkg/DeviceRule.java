@@ -1,3 +1,9 @@
+/**
+ * read the rule from rule.json file.
+ * 
+ * @author hy
+ * @date 2019/03/03
+ * */
 package mypkg;
 
 import java.io.FileInputStream;
@@ -8,6 +14,9 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+/**
+ * @param rule_path rule file path
+ * */
 public class DeviceRule {
 	private String rule_path = "rule.json";
 	private JSONParser parser = new JSONParser();
