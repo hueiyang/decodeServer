@@ -1,0 +1,79 @@
+{
+	"152":
+		{
+		"CO2":{
+      	"value":"i 17 - i 18 * v 100",
+      	"number":3,
+      	"unit":"ppm"
+   		},
+	   "humidity":{
+	      "value":"i 15 * v 256 + i 16 / v 100",
+	      "number":2,
+	      "unit":"%RH"
+	   },
+	   "temperature":{
+	      "value":"i 13 * v 256 + i 14 / v 100",
+	      "number":1,
+	      "unit":"°C"
+	   },
+	   "lqi":{
+	      "number":0,
+	      "value":"i 46"
+	   }
+	},
+	"138":{
+	   "DO1":{
+	      "value":"i 13",
+	      "number":1
+	   },
+	   "DO2":{
+	      "value":"i 14",
+	      "number":2
+	   },
+	   "DO3":{
+	      "value":"i 15",
+	      "number":3
+	   }
+	},
+	"135":
+		{
+	   "DI1":{
+	      "value":"i 13",
+	      "number":1
+	   },
+	   "DI2":{
+	      "value":"i 14",
+	      "number":2
+	   },
+	   "DI3":{
+	      "value":"i 15",
+	      "number":3
+	   },
+	   "DI4":{
+	      "value":"i 16",
+	      "number":4
+	   }
+	},
+	"132":
+		{
+	   "humidity":{
+	      "value":"i 15 * v 256 + i 16 / v 100",
+	      "number":2,
+	      "unit":"%RH"
+	   },
+	   "temperature":{
+	      "value":"i 13 * v 256 + i 14 / v 100",
+	      "number":1,
+	      "unit":"°C"
+	   },
+	   "voltage":{
+	      "value":"i 17 * v 256 + i 18 / v 1000",
+	      "number":3,
+	      "unit":"V"
+	   },
+	   "lqi":{
+	      "number":0,
+	      "value":"i 46"
+	   }
+	}
+}
