@@ -23,6 +23,7 @@ public class PacketData {
 	final int TYPEIDINDEX = 9;
 	private String timestamp;	// timesatmp when packet received.	[HH:MM:SS]
 	
+	private byte[] hexData = new byte[49];
 	private String[] arrHexData;		// hex packet data in string array
 	private String TypeId;				// device type id [ex. 132, 135, 138, 152]
 	private JSONObject packetRule;		// rule for this packet id
@@ -30,12 +31,12 @@ public class PacketData {
 	
 	
 	public PacketData() {}
-	public PacketData(String timestamp, String strHexData) {
+	public PacketData(String timestamp, byte[] hexData) {
 		this.timestamp = timestamp;
 		
-		// split data into array format to decode.
-		arrHexData = strHexData.split(" ");
-		
+		// convert btye[] to hexString and split data into array format to decode.
+		arrHexData = split2StrArr(byte2Hex(hexData));
+
 		// get the device type id in Decimal_string [ex. 132, 135, 138, 152]
 		TypeId = Integer.parseInt(arrHexData[TYPEIDINDEX], 16) + "";
 	}
@@ -162,6 +163,37 @@ public class PacketData {
 			return true;
 		else
 			return false;
+	}
+	
+	/**
+	 * Convert byte array into hex string.
+	 * 
+	 * @param bArray byte array from receive packet data.
+	 * @return hex String
+	 */
+	public String byte2Hex(byte[] bArray) {
+		String result = "";
+		
+		for (int i = 0 ; i < bArray.length ; i++)
+				result += Integer.toString(( bArray[i] & 0xff ) + 0x100, 16).substring(1);
+		
+		return result;
+	}
+	
+	/**
+	 * Split every two cahr into string array.
+	 * 
+	 * @param str hex string from byte2Hex()
+	 * @return strArray to decode calculate. 
+	 */
+	public String[] split2StrArr(String str) {
+		String[] result = new String[49];
+		
+		for(int i = 0 ; i < str.length() ; i = i + 2 ) {
+			result[i/2] = str.substring(i, i+2);
+		}
+		
+		return result;
 	}
 	
 	// getter and setter

@@ -2,7 +2,7 @@
 	"152":
 		{
 		"CO2":{
-      	"value":"i 17 - i 18 * v 100",
+      	"value":"i 17 * v 256 + i 18",
       	"number":3,
       	"unit":"ppm"
    		},

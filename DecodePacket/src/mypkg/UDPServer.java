@@ -24,7 +24,7 @@ import java.util.Scanner;
 public class UDPServer extends Thread{
 	final int PORT = 5033;		// UDP server port.
 	final int TYPEIDINDEX = 9;	// Device type id index.
-	private byte[] hexData = new byte[146];	// received raw data packet.
+	private byte[] hexData = new byte[49];	// received raw data packet.
 	private DatagramSocket udpServer;
 	private DeviceRule deviceRule;
 	
@@ -63,7 +63,7 @@ public class UDPServer extends Thread{
 				
 				System.out.print("[" + timestamp + "] " + "[ " + (++connectionCount) +" Packet Receive] - ");
 				
-				PacketData packetData = new PacketData(timestamp, new String(receivePacket.getData()));
+				PacketData packetData = new PacketData(timestamp, receivePacket.getData());
 				
 				// first check CRC > Correct: decode ; Wrong: waitting next
 				if(packetData.checkCRC()) {
