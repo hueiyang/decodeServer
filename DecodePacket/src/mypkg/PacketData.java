@@ -23,7 +23,6 @@ public class PacketData {
 	final int TYPEIDINDEX = 9;
 	private String timestamp;	// timesatmp when packet received.	[HH:MM:SS]
 	
-	private byte[] hexData = new byte[49];
 	private String[] arrHexData;		// hex packet data in string array
 	private String TypeId;				// device type id [ex. 132, 135, 138, 152]
 	private JSONObject packetRule;		// rule for this packet id
